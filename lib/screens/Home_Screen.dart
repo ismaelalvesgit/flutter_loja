@@ -22,14 +22,14 @@ class _HomeScreenState extends State<HomeScreen> {
           body: HomeTab(),
           drawer: CustomDrawer(_pageController),
         ),
-//        Scaffold(
-//          appBar: AppBar(
-//            title: Text("Produtos"),
-//            centerTitle: true,
-//          ),
-//          drawer: CustomDrawer(_pageController),
-//          body: ProductsTab(),
-//        )
+        Scaffold(
+          appBar: AppBar(
+            title: Text("Produtos"),
+            centerTitle: true,
+          ),
+          drawer: CustomDrawer(_pageController),
+          body: ProductsTab(),
+        )
       ],
     );
   }
