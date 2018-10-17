@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loja/tabs/Home_Tab.dart';
 import 'package:loja/tabs/Products_Tab.dart';
+import 'package:loja/widgets/Cart_Button.dart';
 import 'package:loja/widgets/Custom_Drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           body: HomeTab(),
           drawer: CustomDrawer(_pageController),
+          floatingActionButton: CartButton(),
         ),
         Scaffold(
           appBar: AppBar(
@@ -28,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             centerTitle: true,
           ),
           drawer: CustomDrawer(_pageController),
+          floatingActionButton: CartButton(),
           body: ProductsTab(),
         )
       ],

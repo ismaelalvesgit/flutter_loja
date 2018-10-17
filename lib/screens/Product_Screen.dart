@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:loja/datas/Cart_Product.dart';
 import 'package:loja/datas/Product_data.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:loja/models/Cart_Model.dart';
+import 'package:loja/models/Users_Model.dart';
+import 'package:loja/screens/Cart_Screen.dart';
+import 'package:loja/screens/Login_Screen.dart';
 
 class ProductScreen extends StatefulWidget {
   final ProductData product;
@@ -94,26 +99,51 @@ class _ProductScreenState extends State<ProductScreen> {
                     }).toList(),
                   ),
                 ),
-                SizedBox(height: 16.0,),
-                SizedBox(height: 44.0,
+                SizedBox(
+                  height: 16.0,
+                ),
+                SizedBox(
+                  height: 44.0,
                   child: RaisedButton(
-                    onPressed: sizes != null ? (){} : null,
-                    child: Text("Adicionar ao Carrinho",
-                    style: TextStyle(fontSize: 18.0),
+                    onPressed: sizes != null
+                        ? () {
+                            if (UserModel.of(context).isLoggedIn()) {
+                              CartProduct cartProduct = CartProduct();
+                              cartProduct.size = sizes;
+                              cartProduct.quantity = 1;
+                              cartProduct.pid = product.id;
+                              cartProduct.category = product.category;
+
+                              CartModel.of(context).addCartItem(cartProduct);
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => CartScreen()));
+                            } else {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
+                            }
+                          }
+                        : null,
+                    child: Text(
+                      UserModel.of(context).isLoggedIn()
+                          ? "Adicionar ao Carrinho"
+                          : "Entre para comprar",
+                      style: TextStyle(fontSize: 18.0),
                     ),
                     color: primaryColor,
                     textColor: Colors.white,
                   ),
                 ),
-                SizedBox(height: 16.0,),
-                Text("Descição", 
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w500
+                SizedBox(
+                  height: 16.0,
                 ),
+                Text(
+                  "Descição",
+                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
                 ),
-                Text(product.description,
-                  style: TextStyle(fontSize: 16.0),)
+                Text(
+                  product.description,
+                  style: TextStyle(fontSize: 16.0),
+                )
               ],
             ),
           )
