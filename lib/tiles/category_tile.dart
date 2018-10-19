@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:loja/screens/Category_Screen.dart';
+import 'package:flutter/material.dart';
+import 'package:loja/screens/category_screen.dart';
 
-class CategoriesTile extends StatelessWidget {
+class CategoryTile extends StatelessWidget {
 
-  final  DocumentSnapshot snapshot;
+  final DocumentSnapshot snapshot;
 
-  CategoriesTile(this.snapshot);
+  CategoryTile(this.snapshot);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class CategoriesTile extends StatelessWidget {
       trailing: Icon(Icons.keyboard_arrow_right),
       onTap: (){
         Navigator.of(context).push(
-            MaterialPageRoute(builder: (context)=> CategoryScreen(snapshot))
+          MaterialPageRoute(builder: (context)=>CategoryScreen(snapshot))
         );
       },
     );

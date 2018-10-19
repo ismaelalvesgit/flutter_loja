@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "425033538342",
-    "firebase_url": "https://flutterloja.firebaseio.com",
-    "project_id": "flutterloja",
-    "storage_bucket": "flutterloja.appspot.com"
+    "project_number": "650757513163",
+    "firebase_url": "https://lojaflutter-548f7.firebaseio.com",
+    "project_id": "lojaflutter-548f7",
+    "storage_bucket": "lojaflutter-548f7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:425033538342:android:39dd83eefc3196f6",
+        "mobilesdk_app_id": "1:650757513163:android:39dd83eefc3196f6",
         "android_client_info": {
           "package_name": "com.ismael.loja"
         }
       },
       "oauth_client": [
         {
-          "client_id": "425033538342-a3opeu3vnqpfpj44oel3lqtsqt15ehb6.apps.googleusercontent.com",
+          "client_id": "650757513163-931au7somh8gvd3hdjfvaumgpsbb4hjd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ismael.loja",
+            "certificate_hash": "581c07cd94b6b091e7ce9f27c99cde2a0e41a168"
+          }
+        },
+        {
+          "client_id": "650757513163-5sij326o2priu9d147cifuvmktj8r9u0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCmOC6zlvlDUT_xKIzXww2lj_03UH1vAec"
+          "current_key": "AIzaSyCBA3KjgBPyf0vSYx6ec26RI-e4UygiHnU"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650757513163-5sij326o2priu9d147cifuvmktj8r9u0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

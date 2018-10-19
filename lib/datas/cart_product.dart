@@ -1,6 +1,7 @@
-import 'package:loja/datas/Product_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-class CartProduct{
+import 'package:loja/datas/product_data.dart';
+
+class CartProduct {
 
   String cid;
 
@@ -26,9 +27,10 @@ class CartProduct{
     return {
       "category": category,
       "pid": pid,
-      "quantity":quantity,
+      "quantity": quantity,
       "size": size,
-      "product": productData.toResumeMap()
+      "product": productData.toResumedMap()
     };
   }
+
 }

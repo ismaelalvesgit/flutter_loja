@@ -10,14 +10,14 @@ class HomeTab extends StatelessWidget {
 
     Widget _buildBodyBack() => Container(
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 211, 118, 130),
-                Color.fromARGB(255, 253, 181, 168)
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight
-          )
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 211, 118, 130),
+            Color.fromARGB(255, 253, 181, 168)
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight
+        )
       ),
     );
 
@@ -38,7 +38,7 @@ class HomeTab extends StatelessWidget {
             ),
             FutureBuilder<QuerySnapshot>(
               future: Firestore.instance
-                  .collection("home").orderBy("pos").getDocuments(),
+                .collection("home").orderBy("pos").getDocuments(),
               builder: (context, snapshot){
                 if(!snapshot.hasData)
                   return SliverToBoxAdapter(
@@ -52,22 +52,22 @@ class HomeTab extends StatelessWidget {
                   );
                 else
                   return SliverStaggeredGrid.count(
-                    crossAxisCount: 2,
+                      crossAxisCount: 2,
                     mainAxisSpacing: 1.0,
                     crossAxisSpacing: 1.0,
                     staggeredTiles: snapshot.data.documents.map(
-                            (doc){
-                          return StaggeredTile.count(doc.data["x"], doc.data["y"]);
-                        }
+                      (doc){
+                        return StaggeredTile.count(doc.data["x"], doc.data["y"]);
+                      }
                     ).toList(),
                     children: snapshot.data.documents.map(
-                            (doc){
-                          return FadeInImage.memoryNetwork(
+                      (doc){
+                        return FadeInImage.memoryNetwork(
                             placeholder: kTransparentImage,
                             image: doc.data["image"],
                             fit: BoxFit.cover,
-                          );
-                        }
+                        );
+                      }
                     ).toList(),
                   );
               },
